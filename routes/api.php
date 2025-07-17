@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GroqController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +24,6 @@ Route::prefix('product')->group(function () {
 
     Route::put('/update/{id}', [ProductController::class, 'update']);
     Route::delete('/delete/{id}', [ProductController::class, 'delete']);
+
+    Route::post('/virtual-assistance', [GroqController::class, 'askGroq']);
 });
