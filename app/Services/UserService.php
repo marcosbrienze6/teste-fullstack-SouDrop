@@ -13,22 +13,12 @@ class UserService
         $this->userModel = $userModel;
     }
 
-    //Gera o token JWT
-    protected function respondWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'user' => auth('api')->user(),
-        ]);
-    }
-
     //Cria o Usuário
     public function create($data)
     {
         $data['password'] = Hash::make($data['password']);
         $user = $this->userModel->create($data);
-        
+
         return $user;
     }
 }

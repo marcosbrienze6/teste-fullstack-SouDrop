@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use App\Services\UserService;
+use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {
@@ -15,7 +16,7 @@ class UserController extends Controller
     }
 
     //Cria o Usuário
-    public function create(CreateUserRequest $request)
+    public function create(CreateUserRequest $request): JsonResponse
     {
         $data = $request->validated();
         $user = $this->userService->create($data);
@@ -25,17 +26,5 @@ class UserController extends Controller
             'message' => 'Usuário criado com sucesso.',
             'data' => $user
         ], 200);
-    }
-
-    //Retorna Usuários de acordo com o filtro
-    public function getByFilter()
-    {
-        $name = request()->query('name');
-
-        $users = User::query()
-            ->name($name)
-            ->get();
-
-        return response()->json(['error' => false, 'usuarios' => $users]);
     }
 }
