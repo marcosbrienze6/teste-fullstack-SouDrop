@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
+
+/* Estilos da Navbar */
+
+header {
+    width: 100%;
+    display: flex;
+    padding: 0 2em;
+    cursor: default;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    background-color: rgb(27, 27, 27);
+}
+
+.head_left {
+    color: white;
+    cursor: pointer;
+}
+
+.head_right .login_button {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.head_right .login_button:hover {
+    background-color: black;
+    color: white;
+}
+
+.head_right button {
+    color: white;
+    border: 1px solid white;
+    padding: 0.5em;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+.head_right button:hover {
+    color: black;
+    border: 1px solid white;
+    padding: 0.5em;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+}
+
+@media (min-width: 900px) {
+    header {
+        padding: 0 60px;
+    }
+}
+
+@media (min-width: 1200px) {
+    header {
+        padding: 0 120px;
+    }
+}
+
+/* Estilo da Mensagem Inicial */
+
+.message {
+    color: black;
+    margin-top: 120px;
+    text-align: center;
+}
+
+/* Estilos da Section */
+
+.start-here {
+    display: flex;
+    margin: 5em 1em 0;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    padding: 40px 20px 30px;
+    max-width: 300px;
+    margin: 0 1em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #444444;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-button {
+    margin-top: 15px;
+    background-color: #19191a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card-button:hover {
+    background-color: #749dc8;
+}
+
+/* Estilos do Footer */
+
+.footer {
+    background-color: black;
+    color: #fff;
+    padding: 20px 90px;
+    text-align: center;
+    margin-top: 300px;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links li a:hover {
+    color: #fff;
+}
