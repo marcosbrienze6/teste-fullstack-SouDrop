@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserLoginRequest;
 use App\Models\User;
-use App\Services\AuthService;
-use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -19,7 +16,6 @@ class AuthController extends Controller
     {
         $data = $request->validated();
 
-        //Checa se o usuário existe
         $user = User::where('email', $data['email'])->first() 
             ?? throw new \Exception('Usuário não encontrado.', 404); 
 
@@ -34,7 +30,6 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    //Desloga o Usuário
     public function logout(): JsonResponse
     {
         if (!auth('api')->check()) {
@@ -48,7 +43,6 @@ class AuthController extends Controller
         ]);
     }
 
-    //Atualiza o Usuário
     public function update(UpdateUserRequest $request): JsonResponse
     {
         $user = Auth::user();
@@ -61,7 +55,6 @@ class AuthController extends Controller
         ]);
     }
 
-    //Deleta o usuário
     public function delete(): JsonResponse
     {
         Auth::user()->delete();
