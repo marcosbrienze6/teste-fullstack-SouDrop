@@ -2,24 +2,29 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Entrar - SouDrop</title>
+  <title>Cadastro - SouDrop</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="stylesheet" href="{{asset('/css/login.css')}}" />
 
 </head>
 <body>
-    <form id="login_container">
-        <h1>Entrar</h1>
 
+  <div class="card">
+    <form id="login_container">
+        <h1>Cadastre-se</h1>
+
+        <input type="name" name="name" placeholder="Nome" required><br>
         <input type="email" name="email" placeholder="E-mail" required><br>
         <input type="password" name="password" placeholder="Senha" required><br>
 
-        <span>Não tem uma conta?</span><a href="/api/register"> Crie uma !</a><br><br>
-        <button type="submit">Entrar</button>
+        <span>Já tem uma conta?</span><a href="/api/login"> Entre !</a><br><br>
+        <button type="submit">Criar conta</button>
     </form>
 
-  <p id="mensagem" style="color: red;"></p>
+     <p id="mensagem" class="mensagem-feedback"></p>
+  </div>
+
 
   <script>
     const form = document.getElementById('login_container');
@@ -29,12 +34,13 @@
       e.preventDefault();
 
       const data = {
+        name: form.name.value,
         email: form.email.value,
         password: form.password.value,
       };
 
       try {
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch('/api/users/create', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -42,14 +48,14 @@
           },
           body: JSON.stringify(data)
         });
-        console.log('teste');
         const result = await response.json();
+        console.log(result);
 
         if (response.ok) {
           localStorage.setItem('token', result.token);
           window.location.href = '/api/dashboard'; 
         } {
-          mensagem.textContent = result.message || 'Erro ao fazer login.';
+          mensagem.textContent = result.message || 'Erro ao criar uma conta.';
         }
 
       } catch (err) {
