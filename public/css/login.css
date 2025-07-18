@@ -1,0 +1,80 @@
+body {
+    font-family: "Nunito", sans-serif;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #dfdfdf;
+    overflow-y: hidden;
+}
+
+#login_container {
+    background-color: black;
+    width: 400px;
+    height: 350px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0;
+}
+
+#login_container h1 {
+    color: white;
+}
+
+#login_container input {
+    padding: 0.5em;
+    margin: 1em 0;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+span {
+    color: white;
+    font-size: 12px;
+}
+
+#login_container a {
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#login_container a:hover {
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#login_container button {
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#login_container button:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos do Feedback */
+
+.mensagem-feedback {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #28a745;
+    text-align: center;
+}
+
+.mensagem-sucesso {
+    color: #28a745;
+}
+
+.mensagem-erro {
+    color: #dc3545;
+}

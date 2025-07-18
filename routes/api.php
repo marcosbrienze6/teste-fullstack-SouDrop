@@ -28,6 +28,17 @@ Route::prefix('product')->group(function () {
     Route::post('/virtual-assistance', [GroqController::class, 'askGroq']);
 });
 
-Route::get('/teste', function () {
+ /**
+    * Rotas Front End
+  */
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/home', function () {
     return view('home');
+});
+
+Route::get('/register', function () {
+    return view('register');
 });

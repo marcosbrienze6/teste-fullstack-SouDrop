@@ -17,8 +17,12 @@
         </div>
 
         <div class="head_right">
-            <button>Criar conta</button>
-            <button class="login_button">Entrar</button>
+            <a href="/api/register">
+                <button>Criar conta</button>
+            </a>
+            <a href="/api/login">
+                <button class="login_button">Entrar</button>
+            </a>
         </div>
     </header>
 
