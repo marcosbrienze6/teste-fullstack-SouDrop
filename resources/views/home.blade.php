@@ -37,14 +37,14 @@
             <div class="card-number">1</div>
             <h3>Cadastre-se como vendedor</h3>
             <p>Crie sua conta e comece a montar sua loja online em poucos minutos.</p>
-            <button class="card-button">Quero vender</button>
+            <a href="/api/register"><button class="card-button">Quero vender</button></a>
         </div>
 
         <div class="card">
             <div class="card-number">2</div>
             <h3>Adicione seus produtos</h3>
             <p>Cadastre seus itens com fotos, preços e descrições atrativas.</p>
-            <button class="card-button">Começar cadastro</button>
+            <a href="/api/register"><button class="card-button">Começar cadastro</button></a>
         </div>
 
         <div class="card">
@@ -55,16 +55,5 @@
         </div>
 
     </section>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2025 SouDrop. Todos os direitos reservados.</p>
-        <ul class="footer-links">
-          <li><a href="#">Termos de uso</a></li>
-          <li><a href="#">Política de privacidade</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
-      </div>
-    </footer>
 </body>
 </html>
