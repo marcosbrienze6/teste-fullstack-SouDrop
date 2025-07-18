@@ -6,6 +6,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
     }
 
     //Cria o Usuário
-    public function create(CreateUserRequest $request): JsonResponse
+    public function create(Request $request): JsonResponse
     {
         $data = $request->validated();
         $user = $this->userService->create($data);

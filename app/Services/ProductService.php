@@ -16,35 +16,29 @@ class ProductService
 
     public function store(array $data)
     {
-        $user = Auth::user();
-        throw_if(!$user, new \Exception('Usuário não autenticado.'));
-
-        $product = $this->productModel->create(array_merge(
-            $data, ['user_id' => $user->id]
-        ));
-
-        $product->load('user');
+        $product = $this->productModel->create($data);
 
         return $product;
     }
 
-    public function getByFilter(array $data)
+    public function getByFilter($data)
     {
+        $query = Product::with('user');
+
         if ($data) {
-           return Product::where('name', 'LIKE', "%{$data}%")
+            $query->where(function ($q) use ($data) {
+                $q->where('name', 'LIKE', "%{$data}%")
                 ->orWhere('type', $data)
-                ->orWhere('color', $data)
-                ->get();
-        } 
-        
-        return Product::all();
+                ->orWhere('description', $data)
+                ->orWhere('color', $data);
+            });
+        }
+
+        return $query->paginate(10);
     }
 
     public function update(array $data, int $productId)
     {
-        $user = Auth::user();
-        throw_if(!$user, new \Exception('Usuário não autenticado.'));
-
         $product = Product::findOrFail($productId);
         $product->load('user');
         $product->update($data);
@@ -54,10 +48,9 @@ class ProductService
 
     public function delete(int $productId)
     {
-        $user = Auth::user();
-        throw_if(!$user, new \Exception('Usuário não autenticado.'));
-
         $product = Product::findOrFail($productId);
         $product->delete();
+
+        return $product;
     }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\ProductType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 
 class CreateProductRequest extends FormRequest
 {
@@ -25,7 +28,7 @@ class CreateProductRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'type' => 'required|in:summer,winter',
+            'type' => ['required', Rule::in(ProductType::values())],
             'user_id' => 'numeric|exists:user,id',
             'color' => 'required|string|max:255',
         ];
