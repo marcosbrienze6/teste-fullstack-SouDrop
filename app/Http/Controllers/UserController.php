@@ -17,7 +17,7 @@ class UserController extends Controller
     }
 
     //Cria o Usuário
-    public function create(Request $request): JsonResponse
+    public function create(CreateUserRequest $request): JsonResponse
     {
         $data = $request->validated();
         $user = $this->userService->create($data);
