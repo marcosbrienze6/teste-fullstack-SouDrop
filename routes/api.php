@@ -25,7 +25,7 @@ Route::prefix('product')->group(function () {
     Route::put('/update/{id}', [ProductController::class, 'update']);
     Route::delete('/delete/{id}', [ProductController::class, 'delete']);
 
-    Route::post('/virtual-assistance', [GroqController::class, 'askGroq']);
+    Route::post('/groq', [GroqController::class, 'askGroq']);
 });
 
  /**
@@ -41,4 +41,8 @@ Route::get('/home', function () {
 
 Route::get('/register', function () {
     return view('register');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });

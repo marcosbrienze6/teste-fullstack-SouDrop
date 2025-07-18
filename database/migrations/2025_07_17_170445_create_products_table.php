@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('color');
             $table->foreignId('user_id')->nullable()->constrained('user');
-            $table->enum('type', ['summer', 'winter'])->default('summer');
+            $table->string('type');
 
             $table->softDeletes();
             $table->timestamps();

@@ -16,11 +16,11 @@ class GroqController extends Controller
 
         $prompt = $validated['prompt'];
 
-        $products = Product::all(['name', 'price', 'color'])->toArray();
+        $products = Product::all(['name', 'price', 'color', 'description'])->toArray();
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer' . env('GROQ_API_KEY'),
+            'Authorization' => 'Bearer ' . env('GROQ_API_KEY'),
         ])->post('https://api.groq.com/openai/v1/chat/completions', [
             'model' => 'meta-llama/llama-4-scout-17b-16e-instruct',
             'stream' => false,

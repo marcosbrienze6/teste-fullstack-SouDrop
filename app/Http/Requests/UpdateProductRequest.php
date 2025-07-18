@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\ProductType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -25,7 +27,7 @@ class UpdateProductRequest extends FormRequest
             'name' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:255',
             'price' => 'nullable|numeric',
-            'type' => 'nullable|in:summer,winter',
+            'type' => ['nullable', Rule::in(ProductType::values())],
             'color' => 'nullable|string|max:255',
         ];
     }
